@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Product } from "../../types/product";
 import Rating from "../Rating/Rating";
+import HotBadge from "../Badge/HotBadge";
 
 interface ProductCardProps {
   product: Product;
@@ -11,8 +12,10 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="bg-white rounded-lg border-[3px] border-[#F6F7F8] w-[328px] h-[408px] flex flex-col">
-      <div className="w-full mb-4 relative">
+    <div className="relative bg-white rounded-lg border-[3px] border-[#F6F7F8] w-[328px] h-[408px] flex flex-col">
+      {product.isHot && <HotBadge  />}
+
+      <div className="w-full mb-4">
         <Image
           src={product.imageUrl}
           alt={product.name}
@@ -26,10 +29,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <h3 className="font-bold text-[#223263] text-[18px] leading-7 tracking-[0.5px] text-gray-900 mb-2">
           {product.name}
         </h3>
-        
-       <div className="flex justify-center items-center">
-         <Rating value={product.ratingValue}/>
-       </div>
+
+        <div className="flex justify-center items-center">
+          <Rating value={product.ratingValue} />
+        </div>
 
         <div className="flex justify-center items-center space-x-6 py-2 leading-6">
           <span className="text-[#40BFFF] font-bold text-[16px]">
