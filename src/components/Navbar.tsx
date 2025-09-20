@@ -12,7 +12,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoSrc }) => {
   const [active, setActive] = useState("Home");
 
   return (
-    <nav className="flex flex-wrap items-center justify-between p-4 bg-white shadow-md">
+    <nav className="flex flex-wrap items-center justify-between p-4 bg-white">
       <div className="flex items-center">
         <Image src={logoSrc} width={182} height={44} alt="Logo" />
       </div>
