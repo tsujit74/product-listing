@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import ProductGrid from "@/components/ProductGrid/ProdductGrid";
+import { products } from "@/data/product";
 
 export default function Page() {
   return (
@@ -14,7 +15,7 @@ export default function Page() {
         </div>
 
         <div className="w-3/4">
-          <ProductGrid />
+          <ProductGrid products={products}/>
         </div>
       </div>
 
