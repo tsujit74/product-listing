@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Product } from "../../types/product";
+import Rating from "../Rating/Rating";
 
 interface ProductCardProps {
   product: Product;
@@ -26,6 +27,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {product.name}
         </h3>
         
+       <div className="flex justify-center items-center">
+         <Rating value={product.ratingValue}/>
+       </div>
 
         <div className="flex justify-center items-center space-x-6 py-2 leading-6">
           <span className="text-[#40BFFF] font-bold text-[16px]">
