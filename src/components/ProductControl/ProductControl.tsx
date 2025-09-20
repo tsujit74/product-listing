@@ -1,14 +1,13 @@
 "use client";
 
+import { products } from "@/data/product";
 import Image from "next/image";
 
 const ProductControl = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between bg-[#F6F7F8] p-2 mt-3 mb-3 gap-4 rounded">
       <div className="flex flex-col md:flex-row items-center gap-15 w-full px-2">
-        <span className="text-[#22262A] text-sm font-medium">
-          13 Items
-        </span>
+        <span className="text-[#22262A] text-sm font-medium">{products.length} Items</span>
 
         <div className="flex items-center gap-5">
           <label
