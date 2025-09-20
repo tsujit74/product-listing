@@ -1,9 +1,10 @@
 import React from 'react'
+import HotDeals from './HotDeals'
 
 function Sidebar() {
   return (
     <div>
-      side bar
+      <HotDeals/>
     </div>
   )
 }

@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import ProductCard from "../ProductCard/ProductCard";
+import ProductCard from "./ProductCard";
 import { Product } from "../../types/product";
 import Hero from "../Hero";
-import ProductControl from "../ProductControl/ProductControl";
-import Pagination from "../Pagination/Pagination";
+import ProductControl from "./ProductControl";
+import Pagination from "./Pagination";
 
 interface ProductGridProps {
   products: Product[];

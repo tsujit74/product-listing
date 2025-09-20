@@ -6,10 +6,10 @@ import { products } from "@/data/product";
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen">
       <Navbar logoSrc="/images/logo.svg" />
 
-      <div className="flex min-h-screen p-4 gap-6">
+      <div className="flex min-h-screen bg-white p-4 gap-6">
         <div className="w-1/4">
           <Sidebar />
         </div>
