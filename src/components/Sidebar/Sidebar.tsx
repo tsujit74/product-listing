@@ -12,20 +12,32 @@ interface SidebarProps {
   activeBrand: string | null;
   setActiveBrand: (brand: string | null) => void;
   onPriceChange: (range: { min: number; max: number }) => void;
-  onColorChange: (colors: string[]) => void; 
+  onColorChange: (colors: string[]) => void;
+  onClose?: () => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
   onPriceChange,
   onColorChange,
+  onClose,
 }) => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 relative">
+      {/* Mobile close button */}
+      {onClose && (
+        <button
+          className="absolute top-2 right-2 text-gray-600 font-bold text-md hover:text-black md:hidden"
+          onClick={onClose}
+        >
+          ✕
+        </button>
+      )}
+
       <HotDeals />
       <PriceFilter onFilterChange={onPriceChange} />
       <ColorFilter products={products} onFilterChange={onColorChange} />
-      <Brand/>
-      <More/>
+      <Brand />
+      <More />
     </div>
   );
 };

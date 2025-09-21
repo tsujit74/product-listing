@@ -9,12 +9,11 @@ import { products as allProducts } from "@/data/product";
 import { Product } from "../types/product";
 
 export default function Page() {
-  // Filters
   const [priceRange, setPriceRange] = useState({ min: 0, max: 100000 });
   const [activeBrand, setActiveBrand] = useState<string | null>(null);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Filter products by price, brand, and color
   const filteredProducts: Product[] = useMemo(() => {
     return allProducts.filter((p) => {
       const inPrice = p.price >= priceRange.min && p.price <= priceRange.max;
@@ -37,18 +36,41 @@ export default function Page() {
       <Navbar logoSrc="/images/logo.svg" />
 
       <div className="flex min-h-screen bg-white p-4 gap-6">
-        {/* Sidebar */}
-        <div className="w-1/4">
+        <div className="hidden md:block w-1/4">
           <Sidebar
             activeBrand={activeBrand}
             setActiveBrand={setActiveBrand}
             onPriceChange={setPriceRange}
-            onColorChange={setSelectedColors} // Fixed color filter
+            onColorChange={setSelectedColors}
+            onClose={() => setIsSidebarOpen(false)}
           />
         </div>
 
-        {/* Product Grid */}
-        <div className="w-3/4">
+        {isSidebarOpen && (
+          <div className="fixed inset-0 z-50 bg-black/50 flex">
+            <div className="w-3/4 sm:w-1/2 bg-white p-6 overflow-y-auto">
+              <Sidebar
+                activeBrand={activeBrand}
+                setActiveBrand={setActiveBrand}
+                onPriceChange={setPriceRange}
+                onColorChange={setSelectedColors}
+                onClose={() => setIsSidebarOpen(false)}
+              />
+            </div>
+            <div
+              className="flex-1"
+              onClick={() => setIsSidebarOpen(false)}
+            ></div>
+          </div>
+        )}
+        <div className="flex-1">
+          <button
+            className="md:hidden fixed px-4 py-2 bg-gray-300 text-black rounded z-9"
+            onClick={() => setIsSidebarOpen(true)}
+          >
+            &gt;&gt;
+          </button>
+
           <ProductGrid products={filteredProducts} />
         </div>
       </div>
