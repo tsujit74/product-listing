@@ -5,6 +5,7 @@ import HotDeals from "./HotDeals";
 import { PriceFilter } from "./PriceFilter";
 import ColorFilter from "./ColorFilter";
 import { products } from "@/data/product";
+import Brand from "./Brand";
 
 interface SidebarProps {
   activeBrand: string | null;
@@ -22,6 +23,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <HotDeals />
       <PriceFilter onFilterChange={onPriceChange} />
       <ColorFilter products={products} onFilterChange={onColorChange} />
+      <Brand/>
     </div>
   );
 };

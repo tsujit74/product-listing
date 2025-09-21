@@ -36,8 +36,8 @@ const ColorFilter: React.FC<ColorFilterProps> = ({ products, onFilterChange }) =
           <div
             key={color}
             onClick={() => toggleColor(color)}
-            className={`w-8 h-8 rounded-full border-2 cursor-pointer ${
-              selectedColors.includes(color) ? "border-black border scale-110" : "border-gray-300"
+            className={`w-8 h-8 rounded-full border-3 cursor-pointer ${
+              selectedColors.includes(color) ? "border-white border scale-110" : "border-gray-300"
             }`}
             style={{ backgroundColor: color }}
           />
