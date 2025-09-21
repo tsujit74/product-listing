@@ -45,7 +45,7 @@ const MultiRangeSlider: React.FC<MultiRangeSliderProps> = ({
   };
 
   return (
-    <div className="relative w-full h-10 py-4">
+    <div className="relative w-full h-10 py-6">
       <div className="absolute w-full h-1 bg-gray-300 rounded" />
       <div
         ref={range}

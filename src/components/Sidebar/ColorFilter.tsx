@@ -29,7 +29,7 @@ const ColorFilter: React.FC<ColorFilterProps> = ({ products, onFilterChange }) =
   }, [selectedColors, onFilterChange]);
 
   return (
-    <div className="bg-[#F6F7F8] rounded-md w-full p-6 mt-3 ">
+    <div className="bg-[#F6F7F8] rounded-md w-full p-6 mt-3 py-8 ">
       <h2 className="text-[20px] font-medium text-[#22262A] mb-3 pb-4">COLOR</h2>
       <div className="flex flex-wrap gap-2">
         {allColors.map((color) => (

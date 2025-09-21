@@ -25,7 +25,7 @@ const Brand = () => {
         BRAND
       </h2>
 
-      <ul className="space-y-7">
+      <ul className="space-y-8">
         {brandCounts.map((deal) => (
           <li key={deal.id}>
             <button

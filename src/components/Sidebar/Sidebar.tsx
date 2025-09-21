@@ -6,6 +6,7 @@ import { PriceFilter } from "./PriceFilter";
 import ColorFilter from "./ColorFilter";
 import { products } from "@/data/product";
 import Brand from "./Brand";
+import More from "./More";
 
 interface SidebarProps {
   activeBrand: string | null;
@@ -24,6 +25,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <PriceFilter onFilterChange={onPriceChange} />
       <ColorFilter products={products} onFilterChange={onColorChange} />
       <Brand/>
+      <More/>
     </div>
   );
 };
