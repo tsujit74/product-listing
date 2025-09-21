@@ -1,28 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-
-interface HotDeal {
-  id: number;
-  label: string;
-  count: number;
-}
-
-const hotDeals: HotDeal[] = [
-  { id: 1, label: "Nike", count: 2 },
-  { id: 2, label: "Airmax", count: 48 },
-  { id: 3, label: "Nike", count: 14 },
-  { id: 4, label: "Adidas", count: 15 },
-  { id: 5, label: "Vans", count: 23 },
-  { id: 6, label: "All Stars", count: 1 },
-  { id: 7, label: "Adidas", count: 95 },
-];
+import { products } from "../../data/product";
 
 const HotDeals = () => {
-  const [activeId, setActiveId] = useState<number | null>(2);
-  const handleClick = (id: number) => {
-    setActiveId(id);
-  };
+  const [activeId, setActiveId] = useState<number | null>(null);
+
+  const brandCounts = products
+    .map((p) => p.brand)
+    .filter((brand, index, self) => self.indexOf(brand) === index)
+    .map((brand, index) => ({
+      id: index + 1,
+      label: brand,
+      count: products.filter((p) => p.brand === brand).length,
+    }));
 
   return (
     <section className="space-y-9 bg-[#F6F7F8] p-3 mx-2 rounded">
@@ -33,12 +24,12 @@ const HotDeals = () => {
         Hot Deals
       </h2>
 
-      <ul className="space-y-9 ">
-        {hotDeals.map((deal) => (
+      <ul className="space-y-9">
+        {brandCounts.map((deal) => (
           <li key={deal.id}>
             <button
               type="button"
-              onClick={() => handleClick(deal.id)}
+              onClick={() => setActiveId(deal.id)}
               className={`flex justify-between items-center w-full text-[18px] focus:outline-none rounded px-1 py-0.5 ${
                 activeId === deal.id
                   ? "text-[#33A0FF] font-medium"
