@@ -49,16 +49,17 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="space-y-4">
           <div className="flex items-center space-x-2 ">
-            <Image src="/images/icon.svg" width={84} height={25} alt="Logo" />
+            <Image src="/images/icon.svg" width={38} height={35} alt="Logo" />
             <span className="font-poppins font-bold text-[18px] leading-[100%]">
               E-Comm
             </span>
           </div>
           <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet earum
-            alias maxime modi deserunt repellendus quo facilis distinctio, rerum
-            nulla reiciendis cumque ipsa similique veritatis nostrum velit quasi
-            id quidem!
+            E-Comm is your go-to destination for the latest trends in fashion
+            and lifestyle. We bring together top brands and handpicked
+            collections at the best prices, so you can shop smarter and look
+            better. Fast delivery, easy returns, and quality you can trust that
+            our promise.
           </p>
         </div>
 
@@ -119,7 +120,7 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-gray-400 flex flex-col md:flex-row items-center justify-between text-sm">
         <p className="mb-4 md:mb-0 text-[#C1C8CE]">
-          © 2025 E-Commerce theme by bitterbitdev.com
+          © 2018 Ecommerce theme by www.bisenbaev.com
         </p>
         <div className="flex space-x-2">
           <Image
