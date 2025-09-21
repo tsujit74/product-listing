@@ -13,7 +13,10 @@ const getAllColors = (products: Product[]) => {
   return Array.from(new Set(colors));
 };
 
-const ColorFilter: React.FC<ColorFilterProps> = ({ products, onFilterChange }) => {
+const ColorFilter: React.FC<ColorFilterProps> = ({
+  products,
+  onFilterChange,
+}) => {
   const allColors = getAllColors(products);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
 
@@ -30,16 +33,30 @@ const ColorFilter: React.FC<ColorFilterProps> = ({ products, onFilterChange }) =
 
   return (
     <div className="bg-[#F6F7F8] rounded-md w-full p-6 mt-3 py-8 ">
-      <h2 className="text-[20px] font-medium text-[#22262A] mb-3 pb-4">COLOR</h2>
+      <h2 className="text-[20px] font-medium text-[#22262A] mb-3 pb-4">
+        COLOR
+      </h2>
       <div className="flex flex-wrap gap-2">
         {allColors.map((color) => (
-          <div
+          <button
             key={color}
+            type="button"
             onClick={() => toggleColor(color)}
-            className={`w-8 h-8 rounded-full border-3 cursor-pointer ${
-              selectedColors.includes(color) ? "border-white border scale-110" : "border-gray-300"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleColor(color);
+              }
+            }}
+            className={`w-8 h-8 rounded-full border-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              selectedColors.includes(color)
+                ? "border-white scale-110"
+                : "border-gray-300"
             }`}
             style={{ backgroundColor: color }}
+            tabIndex={0}
+            aria-pressed={selectedColors.includes(color)}
+            aria-label={`Filter by color ${color}`}
           />
         ))}
       </div>
