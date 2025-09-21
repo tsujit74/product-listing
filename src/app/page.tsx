@@ -42,6 +42,8 @@ export default function Page() {
             setActiveBrand={setActiveBrand}
             onPriceChange={setPriceRange}
             onColorChange={setSelectedColors}
+            selectedColors={selectedColors}          
+  setSelectedColors={setSelectedColors}
             onClose={() => setIsSidebarOpen(false)}
           />
         </div>
@@ -54,6 +56,9 @@ export default function Page() {
                 setActiveBrand={setActiveBrand}
                 onPriceChange={setPriceRange}
                 onColorChange={setSelectedColors}
+                selectedColors={selectedColors}
+                setSelectedColors={setSelectedColors}
+
                 onClose={() => setIsSidebarOpen(false)}
               />
             </div>
