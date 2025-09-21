@@ -12,7 +12,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="relative bg-white rounded-lg border-[3px] border-[#F6F7F8] w-[328px] h-[408px] flex flex-col">
+    <div className="relative bg-white rounded-lg border-[3px] border-[#F6F7F8] flex flex-col">
       {product.isHot && <HotBadge  />}
 
       <div className="w-full mb-4">
@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           alt={product.name}
           width={326}
           height={286}
-          className="object-contain mx-auto"
+          className="object-contain w-full h-auto mx-auto"
         />
       </div>
 
