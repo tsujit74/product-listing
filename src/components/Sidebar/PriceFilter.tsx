@@ -14,7 +14,11 @@ interface MultiRangeSliderProps {
   onChange: (range: PriceRange) => void;
 }
 
-const MultiRangeSlider: React.FC<MultiRangeSliderProps> = ({ min, max, onChange }) => {
+const MultiRangeSlider: React.FC<MultiRangeSliderProps> = ({
+  min,
+  max,
+  onChange,
+}) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
   const range = useRef<HTMLDivElement>(null);
@@ -50,32 +54,31 @@ const MultiRangeSlider: React.FC<MultiRangeSliderProps> = ({ min, max, onChange 
       />
 
       <input
-  type="range"
-  min={min}
-  max={max}
-  value={minVal}
-  onChange={handleMinChange}
-  className="absolute w-full h-1 appearance-none bg-transparent pointer-events-auto"
-  style={{ zIndex: 3 }}
-/>
+        type="range"
+        min={min}
+        max={max}
+        value={minVal}
+        onChange={handleMinChange}
+        className="absolute w-full h-1 appearance-none bg-transparent pointer-events-auto"
+        style={{ zIndex: 3 }}
+      />
 
-<input
-  type="range"
-  min={min}
-  max={max}
-  value={maxVal}
-  onChange={handleMaxChange}
-  className="absolute w-full h-1 appearance-none bg-transparent pointer-events-auto"
-  style={{ zIndex: 4 }} 
-/>
-
+      <input
+        type="range"
+        min={min}
+        max={max}
+        value={maxVal}
+        onChange={handleMaxChange}
+        className="absolute w-full h-1 appearance-none bg-transparent pointer-events-auto"
+        style={{ zIndex: 4 }}
+      />
     </div>
   );
 };
 
-export const PriceFilter: React.FC<{ onFilterChange?: (range: PriceRange) => void }> = ({
-  onFilterChange,
-}) => {
+export const PriceFilter: React.FC<{
+  onFilterChange?: (range: PriceRange) => void;
+}> = ({ onFilterChange }) => {
   const prices = products.map((p) => p.price);
   const MIN_PRICE = Math.min(...prices);
   const MAX_PRICE = Math.max(...prices);
@@ -90,7 +93,7 @@ export const PriceFilter: React.FC<{ onFilterChange?: (range: PriceRange) => voi
   }, [priceRange, onFilterChange]);
 
   return (
-    <div className="bg-[#F6F7F8] rounded p-4 mt-3 mx-2">
+    <div className="bg-[#F6F7F8] rounded p-4 mt-3 ">
       <h2 className="text-lg font-semibold text-gray-900 mb-4">PRICE</h2>
 
       <div className="flex justify-between items-center text-gray-600 mb-4">

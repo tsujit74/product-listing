@@ -16,7 +16,7 @@ const HotDeals = () => {
     }));
 
   return (
-    <section className="space-y-9 bg-[#F6F7F8] p-3 mx-2 rounded">
+    <section className="space-y-9 bg-[#F6F7F8] p-3 rounded">
       <h2
         id="hot-deals-title"
         className="text-[20px] font-semibold text-[#22262A] tracking-wide"

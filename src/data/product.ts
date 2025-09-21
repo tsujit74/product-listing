@@ -369,7 +369,7 @@ export const products = [
     ratingValue: 4.3,
     ratingCount: 100,
     isHot: true,
-    colors: ["#111827", "#2563eb", "#ef4444"],
+    colors: ["#111827", "#2563eb", "#ef4444", "#FFF600"],
     category: "Clothing",
     gender: "Men",
     imageUrl: "/images/products/shoes1.svg",
