@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { act } from "react";
 import Image from "next/image";
 import { Product } from "../../types/product";
 import Rating from "../Rating/Rating";
@@ -8,14 +8,24 @@ import HotBadge from "../Badge/HotBadge";
 
 interface ProductCardProps {
   product: Product;
+  selectedColors: string[];
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  selectedColors,
+}) => {
+  const activeColor = selectedColors[0] || "#ffffff";
   return (
     <div className="relative bg-white rounded-lg border-[3px] border-[#F6F7F8] flex flex-col">
-      {product.isHot && <HotBadge  />}
+      {product.isHot && <HotBadge />}
 
-      <div className="w-full mb-4">
+      <div
+        className="w-full mb-4"
+        style={{
+          border: `2px solid ${activeColor}`,
+        }}
+      >
         <Image
           src={product.imageUrl}
           alt={product.name}

@@ -76,7 +76,7 @@ export default function Page() {
             &gt;&gt;
           </button>
 
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid products={filteredProducts} selectedColors={selectedColors} />
         </div>
       </div>
 

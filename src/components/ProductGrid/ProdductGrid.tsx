@@ -9,9 +9,10 @@ import Pagination from "./Pagination";
 
 interface ProductGridProps {
   products: Product[];
+  selectedColors: string[];
 }
 
-const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
+const ProductGrid: React.FC<ProductGridProps> = ({ products,selectedColors }) => {
   const [currPage, setCurrPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
   const [sortBy, setSortBy] = useState("");
@@ -49,7 +50,11 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
         {showProd.length > 0 ? (
           showProd.map((product) => (
-            <ProductCard key={product.id} product={product} />
+           <ProductCard
+      key={product.id}
+      product={product}
+      selectedColors={selectedColors} 
+    />
           ))
         ) : (
           <p className="col-span-full text-center text-gray-500 mt-4">
