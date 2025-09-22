@@ -28,27 +28,43 @@ The goal is to build a **pixel-perfect, responsive Product Listing Page** based 
 
 ```
 src/
-├── app/
-│   ├── layout.tsx        # Root layout (Navbar, Footer)
-│   ├── page.tsx          # Main Product Listing page
-│   ├── globals.css       # Tailwind base styles
+├── app/                     
+│   ├── favicon.ico
+│   ├── globals.css       
+│   ├── layout.tsx           
+│   └── page.tsx             
 │
-├── components/           # Reusable components
-│   ├── Navbar.tsx
-│   ├── Sidebar.tsx
-│   ├── FilterPanel.tsx
-│   ├── ProductCard.tsx
-│   ├── Badge.tsx
-│   ├── Rating.tsx
-│   ├── Pagination.tsx
-│   └── Footer.tsx
+├── components/
+│   ├── Badge/
+│   │   └── HotBadge.tsx    
+│   │
+│   ├── ProductGrid/
+│   │   ├── Pagination.tsx   # Pagination component
+│   │   ├── ProductGrid.tsx  # Product listing grid
+│   │   ├── ProductCard.tsx  # Individual product card
+│   │   └── ProductControl.tsx # Sorting & items per page
+│   │
+│   ├── Rating/
+│   │   └── Rating.tsx       # Star rating
+│   │
+│   ├── Sidebar/
+│   │   ├── Brand.tsx        # Brand filter with counts
+│   │   ├── ColorFilter.tsx  
+│   │   ├── HotDeals.tsx     # Hot deals section
+│   │   ├── More.tsx         
+│   │   ├── PriceFilter.tsx  # Price range filter
+│   │   └── Sidebar.tsx      # Sidebar wrapper
+│   │
+│   ├── Footer.tsx           # Footer section
+│   ├── Hero.tsx             # Hero section
+│   └── Navbar.tsx           # Top navigation bar
 │
 ├── data/
-│   └── products.ts       # Mock dataset (24+ products)
-│
+│   └── product.ts           # Mock dataset (24+ products)
 │
 └── types/
-    └── product.ts        # Product interface
+    └── product.ts           # TypeScript interface for products
+
 ```
 
 ---
